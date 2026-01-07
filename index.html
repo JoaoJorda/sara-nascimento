@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara Nascimento Estética | Estética Avançada</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --ouro-gradiente: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --ouro-solido: #aa771c;
+            --grafite: #2c2c2c;
+            --off-white: #faf9f6;
+            --champagne: #f3eee7;
+            --transicao: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--off-white);
+            color: var(--grafite);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- HEADER RESPONSIVO --- */
+        header {
+            position: fixed;
+            width: 100%;
+            padding: 8px 5%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(170, 119, 28, 0.1);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            height: 35px;
+            border-radius: 50%;
+            border: 1px solid var(--ouro-solido);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-desktop {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-desktop a {
+            text-decoration: none;
+            color: var(--grafite);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: var(--transicao);
+        }
+
+        .nav-desktop a:hover {
+            color: var(--ouro-solido);
+        }
+
+        .social-header {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .social-header a {
+            color: var(--grafite);
+            font-size: 1rem;
+            transition: var(--transicao);
+            text-decoration: none;
+        }
+
+        .social-header a:hover {
+            color: var(--ouro-solido);
+            transform: scale(1.1);
+        }
+
+        /* --- HERO SECTION (Ajustada com Bio) --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 60px;
+            background: radial-gradient(circle at center, #ffffff 0%, #f3eee7 100%);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-tagline {
+            color: var(--ouro-solido);
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            margin-bottom: 25px;
+            font-weight: 700;
+            color: var(--grafite);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        /* --- BOTÃO DOURADO LUXO --- */
+        .btn-gold {
+            display: inline-block;
+            padding: 18px 45px;
+            background: var(--ouro-gradiente);
+            background-size: 200% auto;
+            color: var(--grafite);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            box-shadow: 0 10px 20px rgba(170, 119, 28, 0.2);
+            transition: var(--transicao);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-gold:hover {
+            background-position: right center;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(170, 119, 28, 0.3);
+            color: #000;
+        }
+
+        /* --- CARDS DE SERVIÇOS --- */
+        .section-padding {
+            padding: 100px 8%;
+        }
+
+        .grid-servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid var(--champagne);
+            transition: var(--transicao);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .card:hover {
+            border-color: var(--ouro-solido);
+            background: var(--champagne);
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .card-body {
+            padding: 25px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- MAPA E LOCALIZAÇÃO --- */
+        .local-box {
+            display: flex;
+            flex-wrap: wrap;
+            background: #fff;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        .local-info {
+            flex: 1 1 400px;
+            padding: 60px;
+        }
+
+        .local-map {
+            flex: 1 1 400px;
+            min-height: 400px;
+        }
+
+        /* --- ANIMAÇÃO DE REVELAÇÃO --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .local-info {
+                padding: 30px;
+                text-align: center;
+            }
+
+            .section-padding {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-area">
+            <!-- <img src="logo-vibeclinica.jpg" alt="Sara Nascimento Estética Logo"> -->
+            <span style="font-family: 'Cinzel'; font-weight: bold; font-size: 1.1rem;">Sara Nascimento Estética</span>
+        </div>
+        <div class="header-right">
+            <ul class="nav-desktop">
+                <li><a href="#servicos">SERVIÇOS</a></li>
+                <li><a href="#local">LOCALIZAÇÃO</a></li>
+            </ul>
+            <div class="social-header">
+                <a href="https://www.instagram.com/saranascimentoestetica" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/553191186806?text=Oi%2C%20gostaria%20de%20fazer%20um%20agendamento"
+                    target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tagline reveal">ESTÉTICA & SAÚDE</span>
+            <h1 class="reveal">Ofereço saúde para sua pele</h1>
+            <p class="reveal">Experiência única de cuidados personalizados em Contagem. Reserve seu momento de
+                sofisticação e bem-estar.</p>
+            <div class="reveal">
+                <a href="https://wa.me/553191186806?text=Quero reservar meu momento na Sara Nascimento Estética."
+                    class="btn-gold">RESERVE SEU MOMENTO</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="section-padding">
+        <h2 style="text-align: center; margin-bottom: 10px;">Procedimentos Exclusivos</h2>
+        <p style="text-align: center; font-weight: 300;">Tratamentos de alta performance para realçar sua beleza
+            natural.</p>
+
+        <div class="grid-servicos">
+            <!-- Botox -->
+            <div class="card reveal">
+                <img src="img/servico_botox_new.png" alt="Botox" loading="lazy">
+                <div class="card-body">
+                    <div>
+                        <h3>Botox</h3>
+                        <p>Suavize linhas de expressão e previna rugas, mantendo a naturalidade do seu rosto.</p>
+                    </div>
+                    <a href="https://wa.me/553191186806?text=Gostaria%20de%20saber%20mais%20sobre%20Botox"
+                        class="btn-gold"
+                        style="margin-top: auto; padding: 12px 0; width: 100%; text-align: center; font-size: 0.8rem;">SAIBA
+                        MAIS</a>
+                </div>
+            </div>
+
+            <!-- Limpeza Facial -->
+            <div class="card reveal">
+                <img src="img/servico_limpeza_new.png" alt="Limpeza Facial" loading="lazy">
+                <div class="card-body">
+                    <div>
+                        <h3>Limpeza Facial</h3>
+                        <p>Renove sua pele com uma limpeza profunda, removendo impurezas e revitalizando o viço.</p>
+                    </div>
+                    <a href="https://wa.me/553191186806?text=Gostaria%20de%20saber%20mais%20sobre%20Limpeza%20Facial"
+                        class="btn-gold"
+                        style="margin-top: auto; padding: 12px 0; width: 100%; text-align: center; font-size: 0.8rem;">SAIBA
+                        MAIS</a>
+                </div>
+            </div>
+
+            <!-- Massagem -->
+            <div class="card reveal">
+                <img src="img/servico_facial.png" alt="Massagem" loading="lazy">
+                <div class="card-body">
+                    <div>
+                        <h3>Massagem</h3>
+                        <p>Relaxe corpo e mente com técnicas manuais que promovem bem-estar e alívio de tensões.</p>
+                    </div>
+                    <a href="https://wa.me/553191186806?text=Gostaria%20de%20saber%20mais%20sobre%20Massagem"
+                        class="btn-gold"
+                        style="margin-top: auto; padding: 12px 0; width: 100%; text-align: center; font-size: 0.8rem;">SAIBA
+                        MAIS</a>
+                </div>
+            </div>
+
+            <!-- Laser -->
+            <div class="card reveal">
+                <img src="img/servico_laser_new.png" alt="Laser" loading="lazy">
+                <div class="card-body">
+                    <div>
+                        <h3>Laser</h3>
+                        <p>Tecnologia avançada para rejuvenescimento e tratamento de manchas com segurança e eficácia.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/553191186806?text=Gostaria%20de%20saber%20mais%20sobre%20Laser"
+                        class="btn-gold"
+                        style="margin-top: auto; padding: 12px 0; width: 100%; text-align: center; font-size: 0.8rem;">SAIBA
+                        MAIS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="local" class="section-padding" style="background: var(--champagne);">
+        <div class="local-box reveal">
+            <div class="local-info">
+                <h2>Onde Estamos</h2>
+                <p style="margin: 20px 0;">Localizada em Contagem, nossa clínica oferece o máximo de
+                    privacidade e conforto para sua experiência.</p>
+                <p><strong>Endereço:</strong><br>
+                    R. Três, 195 - Nossa Senhora da Conceição<br>
+                    Contagem - MG, 32183-615</p>
+                <br>
+                <a href="https://www.google.com/maps/search/?api=1&query=R.+Três,+195+-+Nossa+Senhora+da+Conceição,+Contagem+-+MG"
+                    target="_blank" class="btn-gold" style="padding: 12px 30px; font-size: 0.75rem;">COMO CHEGAR</a>
+            </div>
+            <div class="local-map">
+                <iframe
+                    src="https://maps.google.com/maps?q=R.+Três,+195+-+Nossa+Senhora+da+Conceição,+Contagem+-+MG&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="100%" style="border:0; filter: grayscale(0.5) contrast(1.1);"
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 15px 5%; text-align: center; background: #fff;">
+        <p
+            style="font-family: 'Cinzel'; color: var(--ouro-solido); font-weight: bold; font-size: 0.85rem; margin-bottom: 5px;">
+            Sara Nascimento Estética
+        </p>
+        <p style="font-size: 0.6rem; opacity: 0.6; margin: 0;">© 2026 Todos os direitos reservados. Contagem, MG.</p>
+    </footer>
+
+    <script>
+        // Função para revelar elementos ao scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+
+        // Disparar uma vez no carregamento
+        document.addEventListener("DOMContentLoaded", reveal);
+    </script>
+</body>
+
+</html>
